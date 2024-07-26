@@ -66,6 +66,6 @@ resize.exe为c++程序,其源码处于resize文件夹下
 
 软件打算找时间再B站上发布视频,有可能要一段时间,我的账户为w_风月无情._
 
-[跳转B站]([w_风月无情的个人空间-w_风月无情个人主页-哔哩哔哩视频 (bilibili.com)](https://space.bilibili.com/630332648))
+作者主页(目前还在潜水):https://space.bilibili.com/630332648
 
 更新时间:24/7/26----v1.0
