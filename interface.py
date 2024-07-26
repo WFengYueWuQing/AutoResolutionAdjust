@@ -298,6 +298,7 @@ class Settings_widget(QWidget):
         self.setWindowTitle("配置菜单窗口")
         self.setFixedSize(795, 507)
         self.ui.confirm_button.clicked.connect(bind_confirm_settings)
+        self.ui.pushButton.clicked.connect(bind_try_listen)
         # 声音字典
         audio_dict = {"Mail": audio.Mail, "IM": audio.IM, "Reminder": audio.Reminder, "SMS": audio.SMS,
                       "LoopingAlarm": audio.LoopingAlarm, "LoopingAlarm2": audio.LoopingAlarm2,
@@ -462,6 +463,16 @@ def bind_set_resolution_yes():
         return
 
 
+def bind_try_listen():
+    """
+    槽函数,用于试听
+    :return:
+    """
+    global settings_widget
+    glo_var.audio_select = settings_widget.ui.select_audio_box.currentText()
+    win_alarm("试听", f"音效为:{glo_var.audio_select}")
+
+
 def is_admin() -> bool:
     """
     用于检测程序是否拥有管理员权限
@@ -480,7 +491,7 @@ def bind_show_try_widget():
     """
     global try_widget
     if glo_var.start_resolution[0] == 0 or glo_var.start_resolution[1] == 0 \
-        or glo_var.end_resolution[0] == 0 or glo_var.end_resolution[1] == 0:
+            or glo_var.end_resolution[0] == 0 or glo_var.end_resolution[1] == 0:
         alarm("请先设置好游戏内外分辨率")
         return
     elif glo_var.game_path == "":
@@ -541,6 +552,7 @@ def bind_test_game():
 
     except Exception as e:
         alarm(f"错误:{e},请尝试给予本程序管理员权限,然后重试")
+
 
 def bind_confirm_settings():
     """
